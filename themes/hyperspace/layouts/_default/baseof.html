@@ -4,10 +4,10 @@
     <body class="is-preload">
         {{- partial "header.html" . -}}
         
-        <div id="content">
+        <div id="wrapper">
             {{- block "main" . }}{{- end }}
+            {{- partial "footer.html" . -}}
         </div>
-        {{- partial "footer.html" . -}}
         {{- partial "scripts.html" . -}}
     </body>
 </html>
