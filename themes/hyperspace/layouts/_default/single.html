@@ -1,9 +1,13 @@
 {{define "main"}}
+{{ $image := resources.Get "images/1.jpg"}}
+    {{ printf "%#v" $image}}
 		<!-- Main -->
 		<section id="main" class="wrapper">
 			<div class="inner">
 				<h1 class="major">{{ .Page.Title }}</h1>
-				<span class="image fit"><img src="images/pic04.jpg" alt="" /></span>
+				{{ if .Params.image }}
+					<span class="image fit"><img src="{{ .Params.image }}" alt="{{ .Params.alt }}" /></span>
+				{{ end }}
 				{{ .Content }}
 			</div>
 		</section>
