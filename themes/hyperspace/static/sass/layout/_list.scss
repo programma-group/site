@@ -1,0 +1,45 @@
+.themelist {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+section.article {
+    width: 50%;
+    @include breakpoint('<=medium') {
+        flex-wrap: wrap;
+        width: 100vw;
+        .article-text {
+            margin-left: 0;
+        }
+    }
+    display: flex;
+    padding: 20px;
+    @include breakpoint('<=medium') {
+        padding: 0;
+    }
+    position: relative;
+    .article-text {
+        margin: auto;
+        margin-left: 100px;
+        @include breakpoint('<=medium') {
+            & {
+                width: 40vw;
+            }
+        }
+        @include breakpoint('<=small') {
+            margin-top: 50px;
+            margin-left: 10%;
+        }
+    }
+    ul.actions {
+        left: 450px;
+        bottom: 0;
+        position: absolute;
+        width: 100%;
+        @include breakpoint('<=large') {
+            left: 350px;
+        }
+
+    }
+    
+}

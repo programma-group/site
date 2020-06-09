@@ -4,8 +4,6 @@
 {{ $paginator := .Paginate (where .Data.Pages "Type" "posts") }}
 {{range $paginator.Pages }}
     <section class="article">
-        <h2 class="article-title">{{ .Title }}</h2>
-        <p class="article-description">{{ .Description }}</p>
         {{ if .Params.Image }}
             {{ with .Resources.GetMatch (.Params.image) }}
                 {{ $image400x := (.Resize "300x400") }}
@@ -14,6 +12,13 @@
         {{ else }}
             <img src="https://via.placeholder.com/300x400.png" class="article-img" />
         {{ end }}
+        <div class="article-text">
+            <h2 class="article-title">{{ .Title }}</h2>
+            <p class="article-description">{{ .Description }}</p>
+            <ul class="actions">
+                <li><a href="{{ .Permalink }}" class="button">Learn more</a></li>
+            </ul>
+        </div>
     </section>
 {{ end }}
 </div>
