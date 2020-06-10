@@ -42,6 +42,12 @@ section.article {
         @include breakpoint('<=large') {
             left: 400px;
         }
+        @include breakpoint('<=small') {
+            position: relative;
+            left: 50%;
+            bottom: 0;
+            display: block;
+        }
     }
     
 }

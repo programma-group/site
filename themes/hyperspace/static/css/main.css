@@ -3237,5 +3237,13 @@ section.article ul.actions {
     left: 400px;
   }
 }
+@media screen and (max-width: 736px) {
+  section.article ul.actions {
+    position: relative;
+    left: 50%;
+    bottom: 0;
+    display: block;
+  }
+}
 
 /*# sourceMappingURL=main.css.map */
