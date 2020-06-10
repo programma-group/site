@@ -27,6 +27,9 @@ section.article {
     .article-text {
         margin: auto;
         margin-left: 100px;
+        @include breakpoint('<=large') {
+            margin-left: 10px;
+        }
         @include breakpoint('<=medium') {
             & {
                 width: 40vw;
@@ -34,7 +37,7 @@ section.article {
         }
         @include breakpoint('<=small') {
             margin-top: 50px;
-            margin-left: 10%;
+            margin-left: 150px;
         }
     }
     ul.actions {
@@ -43,13 +46,18 @@ section.article {
         position: absolute;
         width: 100%;
         @include breakpoint('<=large') {
-            left: 400px;
+            left: 350px;
         }
-        @include breakpoint('<=small') {
+        @include breakpoint('<=medium') {
             position: relative;
-            left: 50%;
             bottom: 0;
             display: block;
+            left: 30%;
+
+        } 
+        @include breakpoint('<=small') {
+            left: 0;
+
         }
     }
     
