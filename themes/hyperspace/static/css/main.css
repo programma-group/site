@@ -3186,10 +3186,13 @@ body.is-preload #sidebar nav ul li {
 .themelist {
   display: flex;
   flex-wrap: wrap;
+  overflow-x: hidden;
 }
 
 section.article {
   width: 50%;
+  word-wrap: break-word;
+  justify-content: space-between;
   display: flex;
   padding: 20px;
   position: relative;
@@ -3231,7 +3234,7 @@ section.article ul.actions {
 }
 @media screen and (max-width: 1280px) {
   section.article ul.actions {
-    left: 350px;
+    left: 400px;
   }
 }
 
