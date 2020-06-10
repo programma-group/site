@@ -3205,6 +3205,9 @@ section.article {
   section.article .article-text {
     margin-left: 0;
   }
+  section.article img {
+    width: 100vw;
+  }
 }
 @media screen and (max-width: 980px) {
   section.article {
