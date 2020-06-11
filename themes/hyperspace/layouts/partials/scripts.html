@@ -5,3 +5,7 @@
 <script src="{{ "js/breakpoints.min.js" | absURL }}"></script>
 <script src="{{ "js/util.js" | absURL }}"></script>
 <script src="{{ "js/main.js" | absURL }}"></script>
+
+{{ if .IsHome }}
+    <script src="{{ "js/contact.js" | absURL }}"></script>
+{{ end }}
