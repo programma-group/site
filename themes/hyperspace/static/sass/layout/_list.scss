@@ -31,14 +31,10 @@ section.article {
             margin-left: 10px;
         }
         @include breakpoint('<=medium') {
-            & {
-                width: 40vw;
-            }
+            width: 100vw;
+            margin: 0;
         }
-        @include breakpoint('<=small') {
-            margin-top: 50px;
-            margin-left: 150px;
-        }
+
     }
     ul.actions {
         left: 420px;

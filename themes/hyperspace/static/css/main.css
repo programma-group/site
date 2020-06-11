@@ -3225,13 +3225,8 @@ section.article .article-text {
 }
 @media screen and (max-width: 980px) {
   section.article .article-text {
-    width: 40vw;
-  }
-}
-@media screen and (max-width: 736px) {
-  section.article .article-text {
-    margin-top: 50px;
-    margin-left: 150px;
+    width: 100vw;
+    margin: 0;
   }
 }
 section.article ul.actions {
