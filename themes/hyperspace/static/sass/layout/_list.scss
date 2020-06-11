@@ -34,6 +34,9 @@ section.article {
             width: 100vw;
             margin: 0;
         }
+        @include breakpoint('<=small') {
+            padding: 100px;
+        }
 
     }
     ul.actions {
@@ -52,8 +55,7 @@ section.article {
 
         } 
         @include breakpoint('<=small') {
-            left: 0;
-
+            left: 33%;
         }
     }
     
