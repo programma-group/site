@@ -2731,6 +2731,10 @@ body.is-ie .wrapper.fullscreen {
   opacity: 0;
 }
 
+button.swal-button {
+  padding: 0 24px;
+}
+
 /* Header */
 #header {
   display: -moz-flex;

@@ -9,14 +9,17 @@
                         <div class="field half">
                             <label for="name">Name</label>
                             <input type="text" name="name" id="name" required />
+                            <label for="name" class="error"></label>
                         </div>
                         <div class="field half">
                             <label for="email">Email</label>
-                            <input type="text" name="email" id="email" required />
+                            <input type="email" name="email" id="email" required />
+                            <label for="email" class="error"></label>
                         </div>
                         <div class="field">
                             <label for="message">Message</label>
                             <textarea name="message" id="message" rows="5" required></textarea>
+                            <label for="message" class="error"></label>
                         </div>
                     </div>
                     <button type="submit" class="button submit">Send Message</button>
