@@ -3155,8 +3155,11 @@ body.is-preload #sidebar nav ul li {
   }
 }
 @media screen and (max-width: 736px) {
-  #sidebar {
+  #sidebar.open {
     height: 100vh;
+  }
+  #sidebar:not(.open) {
+    background-color: transparent;
   }
   #sidebar input.burger-checkbox {
     display: block;

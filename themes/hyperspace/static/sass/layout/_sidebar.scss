@@ -180,8 +180,12 @@
 			}
 		}
 		@include breakpoint('<=small') {
-			height: 100vh;
-			
+			&.open {
+				height: 100vh;
+			}
+			&:not(.open) {
+				background-color: transparent;
+			}
 			input.burger-checkbox {
 				display: block;
 				width: 40px;
