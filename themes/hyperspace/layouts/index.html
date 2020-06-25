@@ -1,0 +1,83 @@
+{{ define "main"}}
+		{{ partial "sidebar.html" . }}
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Intro -->
+					<section id="intro" class="wrapper style1 fullscreen fade-up">
+						<div class="inner">
+							<img src="{{ "images/logo.svg" | absURL }}" height="200" width="200">
+							<h1>{{ .Site.Title }}</h1>
+							<p>We know it's not easy to invest in a IT department. We have taken all of our experience and put it in service of dedicated companies that just need someone to do the work right. You make important decisions, we make sure the systems back you up!.</p>
+							<ul class="actions">
+								<li><a href="#one" class="button scrolly">Checkout why we are different</a></li>
+							</ul>
+						</div>
+					</section>
+
+				<!-- One -->
+					<section id="one" class="wrapper style2 spotlights">
+						{{ range .Site.RegularPages }}
+						<section>
+							<a href="#" class="image"><img src="{{ "images/pic01.jpg" | absURL }}" alt="" data-position="center center" /></a>
+							<div class="content">
+								<div class="inner">
+									<h2>{{ .Title }}</h2>
+									<p>{{ .Description }}</p>
+									<ul class="actions">
+										<li><a href="{{.Permalink }}" class="button">Learn more</a></li>
+									</ul>
+								</div>
+							</div>
+						</section>
+						{{ end }}
+						
+					</section>
+
+				<!-- Two -->
+					<section id="two" class="wrapper style3 fade-up">
+						<div class="inner">
+							<h2>What we do</h2>
+							<p>We are an entire IT department. Covering from servers maintenance and databases migrations to UI/UX and static assets performance. Our wide range expertise in technologies is the key to cover all needs the industry can have. Check some of our areas:.</p>
+							<div class="features">
+								<section>
+									<span class="icon solid major fa-space-shuttle"></span>
+									<h3>Business Requirements </h3>
+									<p>Knowing what you want is not enough. We help you knowing exactly what you need based on your ideas, value chain, market offerings and timeframes.</p>
+								</section>
+								<section>
+									<span class="icon solid major fa-lock"></span>
+									<h3>Infrastructure and DevOps</h3>
+									<p>Our expertise help us to place the living code on the most appropriate platform so we can guarantee scalability, availability, security and performance.</p>
+								</section>
+								<section>
+									<span class="icon solid major fa-database"></span>
+									<h3>Backend Development</h3>
+									<p>We make sure the core of your system is built on top of the most appropriate engine with the appropriate interfaces we guarantee B2B integrations at ease.</p>
+								</section>
+								<section>
+									<span class="icon solid major fa-desktop"></span>
+									<h3>Frontend Development</h3>
+									<p>Look AND FEEL. Your end-user interfaces are enabled for top performance and accesibility so we can guarantee system usability at its most.</p>
+								</section>
+								<section>
+									<span class="icon solid major fa-link"></span>
+									<h3>Agile Craftsmanship</h3>
+									<p>Building software was never about copy/paste. We take our passion into our processes so our standards keep us up to the level of quality we aim for.</p>
+								</section>
+								<section>
+									<span class="icon major fa-gem"></span>
+									<h3>UI/UX</h3>
+									<p>Design and Code, are like Dr's and Nurses. We probably can leave without each other but we choose not to and instead integrate effortlessly collaboration. </p>
+								</section>
+							</div>
+							<ul class="actions">
+								<li><a href="generic.html" class="button">Learn more</a></li>
+							</ul>
+						</div>
+					</section>
+
+				<!-- Three -->
+				{{ partial "contact.html" .}}
+			</div>
+{{ end }}

@@ -1,0 +1,13 @@
+<script src="{{ "js/jquery.min.js" | absURL }}"></script>
+<script src="{{ "js/jquery.scrollex.min.js" | absURL }}"></script>
+<script src="{{ "js/jquery.scrolly.min.js" | absURL }}"></script>
+<script src="{{ "js/browser.min.js" | absURL }}"></script>
+<script src="{{ "js/breakpoints.min.js" | absURL }}"></script>
+<script src="{{ "js/util.js" | absURL }}"></script>
+<script src="{{ "js/main.js" | absURL }}"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+{{ if .IsHome }}
+    <script src="{{ "js/contact.js" | absURL }}"></script>
+    <script src="{{ "js/sidebar.js" | absURL }}"></script>
+{{ end }}

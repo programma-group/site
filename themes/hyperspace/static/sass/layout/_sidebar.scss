@@ -1,0 +1,253 @@
+///
+/// Hyperspace by HTML5 UP
+/// html5up.net | @ajlkn
+/// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+///
+
+/* Sidebar */
+
+
+	#sidebar {
+		@include padding(2.5em, 2.5em);
+		background: _palette(bg);
+		cursor: default;
+		height: 100vh;
+		left: 0;
+		overflow-x: hidden;
+		overflow-y: auto;
+		position: fixed;
+		text-align: right;
+		top: 0;
+		width: _size(sidebar-width);
+		z-index: _misc(z-index-base);
+
+		> .inner {
+			@include vendor('display', 'flex');
+			@include vendor('flex-direction', 'column');
+			@include vendor('justify-content', 'center');
+			@include vendor('transform', 'translateY(0)');
+			@include vendor('transition', (
+				'opacity #{_duration(activation)} ease',
+			));
+			min-height: 100%;
+			opacity: 1;
+			width: 100%;
+
+			body.is-ie & {
+				height: 100%;
+			}
+		}
+
+		nav {
+			> ul {
+				list-style: none;
+				padding: 0;
+
+				> li {
+					@include vendor('transform', 'translateY(0)');
+					@include vendor('transition', (
+						'opacity #{_duration(activation) * 0.15} ease',
+						'transform #{_duration(activation) * 0.75} ease'
+					));
+					margin: 1.5em 0 0 0;
+					opacity: 1;
+					padding: 0;
+					position: relative;
+
+					&:first-child {
+						margin: 0;
+					}
+
+					@for $i from 1 through _misc(max-sidebar-links) {
+						&:nth-child(#{$i}) {
+							@include vendor('transition-delay', '#{(_duration(activation) * 0.2 * $i) + (_duration(activation) * 0.25)}');
+						}
+					}
+				}
+			}
+
+			a {
+				@include vendor('transition', 'color #{_duration(transition)} ease');
+				border: 0;
+				color: _palette(fg-light);
+				display: block;
+				font-size: 0.6em;
+				font-weight: _font(weight-bold);
+				letter-spacing: _font(kerning-alt);
+				line-height: 1.75;
+				outline: 0;
+				padding: 1.35em 0;
+				position: relative;
+				text-decoration: none;
+				text-transform: uppercase;
+
+				&:before,
+				&:after {
+					border-radius: 0.2em;
+					bottom: 0;
+					content: '';
+					height: 0.2em;
+					position: absolute;
+					right: 0;
+					width: 100%;
+				}
+
+				&:before {
+					background: lighten(_palette(bg), 5);
+				}
+
+				&:after {
+					@include vendor('background-image', 'linear-gradient(to right, #{_palette(accent1)}, #{_palette(accent3)})');
+					@include vendor('transition', 'max-width #{_duration(transition)} ease');
+					max-width: 0;
+				}
+
+				&:hover {
+					color: _palette(fg);
+				}
+
+				&.active {
+					color: _palette(fg-bold);
+
+					&:after {
+						max-width: 100%;
+					}
+				}
+			}
+		}
+
+		body.is-preload & {
+			> .inner {
+				opacity: 0;
+			}
+
+			nav {
+				ul {
+					li {
+						@include vendor('transform', 'translateY(2em)');
+						opacity: 0;
+					}
+				}
+			}
+		}
+
+		@include breakpoint('<=large') {
+			height: _size(sidebar-height);
+			left: 0;
+			line-height: _size(sidebar-height);
+			overflow: hidden;
+			padding: 0;
+			text-align: center;
+			top: 0;
+			width: 100%;
+
+			> .inner {
+				@include vendor('flex-direction', 'row');
+				@include vendor('align-items', 'stretch');
+				height: inherit;
+				line-height: inherit;
+			}
+
+			nav {
+				height: inherit;
+				line-height: inherit;
+
+				ul {
+					@include vendor('display', 'flex');
+					height: inherit;
+					line-height: inherit;
+					margin: 0;
+
+					li {
+						display: block;
+						height: inherit;
+						line-height: inherit;
+						margin: 0 0 0 2em;
+						padding: 0;
+					}
+				}
+
+				a {
+					height: inherit;
+					line-height: inherit;
+					padding: 0;
+
+					&:after {
+						background-image: none;
+						background-color: _palette(accent3);
+					}
+				}
+			}
+		}
+		@include breakpoint('<=small') {
+			transition: 200ms;
+			&.open {
+				height: 100vh;
+			}
+			&:not(.open) {
+				background-color: transparent;
+			}
+			input.burger-checkbox {
+				display: block;
+				width: 40px;
+				height: 32px;
+				position: absolute;
+				top: 10px;
+				left: 10px;
+				cursor: pointer;
+				opacity: 0; /* hide this */
+				z-index: 2; /* and place it over the hamburger **/	
+				-webkit-touch-callout: none;
+			}
+			span.burger {
+				display: block;
+				width: 33px;
+				height: 4px;
+				margin-bottom: 5px;
+				position: relative;
+				
+				background: #cdcdcd;
+				border-radius: 3px;
+				
+				z-index: 1;
+				
+				transform-origin: 4px 0px;
+				margin-left: 10px;
+
+				transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+							background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+							opacity 0.55s ease;
+				}
+			span.burger:first-of-type {
+				margin-top: 15px;
+				transform-origin: 0% 0%;
+			}
+			span.burger:nth-last-child(2) {
+				transform-origin: 0% 100%;
+			}
+			input.burger-checkbox:checked ~ span.burger {
+				opacity: 1;
+				transform: rotate(45deg) translate(-3px, -4px);
+			}
+			input.burger-checkbox:checked ~ span.burger:nth-last-child(3) {
+				opacity: 0;
+				transform: rotate(0deg) scale(0.2, 0.2);
+			}
+			input.burger-checkbox:checked ~ span.burger:nth-last-child(2) {
+				transform: rotate(-45deg) translate(0, -1px);
+			}
+			nav {
+				margin-top: 10vh;
+				ul {
+					display: flex;
+					flex-direction: column;
+					li {
+						height: initial ;
+						margin-left: 0;					
+					}
+				}
+			}
+			
+			
+		}
+	}

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    {{- partial "head.html" . -}}
+    <body class="is-preload">
+        {{ if not .IsHome}}
+            {{- partial "header.html" . -}}
+        {{ end }}
+        <div id="wrapper">
+            {{- block "main" . }}{{- end }}
+            {{- partial "footer.html" . -}}
+        </div>
+        {{- partial "scripts.html" . -}}
+    </body>
+</html>

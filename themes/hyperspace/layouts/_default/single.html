@@ -1,0 +1,14 @@
+{{define "main"}}
+{{ $image := resources.Get "images/1.jpg"}}
+		<!-- Main -->
+		<section id="main" class="wrapper">
+			<div class="inner">
+				<h1 class="major">{{ .Page.Title }}</h1>
+				{{ if .Params.image }}
+					<span class="image fit"><img src="{{ .Params.image }}" alt="{{ .Params.alt }}" /></span>
+				{{ end }}
+				{{ .Content }}
+			</div>
+		</section>
+	
+{{end}}
