@@ -8,8 +8,10 @@ function validateEmail(email) {
     
 
 $(function contactListeners() {
+    let token;
     const form = document.getElementById('contact-form');
     const endpoint = form.getAttribute('action');
+    const captchaKey = form.getAttribute('data-captcha-key');
     const labelErrorName = form.querySelector('label.error[for="name"]');
     const labelErrorEmail = form.querySelector('label.error[for="email"]');
     const labelErrorMessage = form.querySelector('label.error[for="message"]');
@@ -24,8 +26,13 @@ $(function contactListeners() {
         labelErrorMessage.textContent = '';
         labelErrorName.textContent = '';
     }
-    $(form).submit(function (e) {
-        e.preventDefault();
+    function onSubmitToken(myToken) {
+        token = myToken;
+        submit();
+    }
+    window.onSubmitToken = onSubmitToken;
+
+    function submit() {
         const name = $name.value.trim();
         const email = $email.value.trim();
         const message = $message.value.trim();
@@ -58,12 +65,14 @@ $(function contactListeners() {
                 name,
                 email,
                 content: message,
+                token: token ? token : null,
             }),
             headers:{
                 'Content-Type': 'application/json'
             }
         })
         .then(res => {
+            console.log("status", res.status);
             if (res.status !== 200) {
                 throw new Error('Error on sending');
             }
@@ -73,6 +82,5 @@ $(function contactListeners() {
         .then(res => swal('Thank you', 'Thank you for your message, we\'ll review it shortly', 'success'))
         .then(clearInputs)
         .catch(() => swal('Ooops','There was a problem sending your message', 'error'))
-        return false;
-    });
+    }
 });

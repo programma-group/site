@@ -4,7 +4,7 @@
         <p>{{ .Site.Params.getInTouchText }}</p>
         <div class="split style1">
             <section>
-                <form method="post" id="contact-form" action="{{.Site.Params.contactEndpoint}}">
+                <form method="post" id="contact-form" action="{{.Site.Params.contactEndpoint}}" data-captcha-key="{{.Site.Params.captchaKey}}">
                     <div class="fields">
                         <div class="field half">
                             <label for="name">Name</label>
@@ -22,7 +22,11 @@
                             <label for="message" class="error"></label>
                         </div>
                     </div>
-                    <button type="submit" class="button submit">Send Message</button>
+                    <button class="button submit g-recaptcha" 
+                         data-sitekey="{{.Site.Params.captchaKey}}" 
+                        data-callback='onSubmitToken'
+                        type="submit" 
+                        data-action='submit'>Send Message</button>
                 </form>
             </section>
             <section>
